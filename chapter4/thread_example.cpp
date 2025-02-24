@@ -12,6 +12,7 @@ auto testFunction(int a, int b, bool sleep) {
 }
 
 int main() {
+    using namespace Common;
     auto t1 = createAndStartThread(-1, "testFunction1", 10, 15, false);
     auto t2 = createAndStartThread(1, "testFunction2", 20, 25, true);
 
