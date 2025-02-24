@@ -13,8 +13,8 @@ auto testFunction(int a, int b, bool sleep) {
 
 int main() {
     using namespace Common;
-    auto t1 = createAndStartThread(-1, "testFunction1", 10, 15, false);
-    auto t2 = createAndStartThread(1, "testFunction2", 20, 25, true);
+    std::unique_ptr t1 = createAndStartThread(-1, "testFunction1", testFunction, 10, 15, false);
+    std::unique_ptr t2 = createAndStartThread(1, "testFunction2", testFunction, 20, 25, true);
 
     std::cout << "main waiting for threads to be done." << std::endl;
     t1 -> join();

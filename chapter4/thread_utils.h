@@ -14,7 +14,7 @@ namespace Common{
         cpu_set_t cpuset;
         CPU_ZERO(&cpuset);
         CPU_SET(core_id, &cpuset);
-        return (pthread_set_affinity_np(pthread_self(), sizeof(cpuset), &cpuset) == 0);
+        return (pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset) == 0);
     }
 
     // Create a thread, set affinity on it, assign it a name, forward the function to be run on the thread and the args
@@ -38,7 +38,7 @@ namespace Common{
 
         auto thread_ptr = std::make_unique<std::thread>(thread_body);
         while(!running && !failed) {
-            using namespace std::chrono::literals;
+            using namespace std::literals::chrono_literals;
             std::this_thread::sleep_for(1s);
         } 
 
