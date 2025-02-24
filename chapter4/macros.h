@@ -6,7 +6,7 @@
 #define UNLIKELY(x) __builtin_expect(!!(x), 0)
 
 inline auto ASSERT(bool cond, const std::string& msg) noexcept {
-    if(cond) [[unlikely]] {
+    if(!cond) [[unlikely]] {
         std::cerr << msg << std::endl;
         exit(EXIT_FAILURE);
     }

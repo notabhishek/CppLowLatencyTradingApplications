@@ -2,7 +2,7 @@
 
 auto testFunction(int a, int b, bool sleep) {
     std::cout << "testFunction(" << a << "," << b << ")" << std::endl;
-    std::cout << "testFunction(" << a + b << std::endl;
+    std::cout << "testFunction(" << a + b << ")" << std::endl;
     if(sleep) {
         std::cout << "testFunction sleeping..." << std::endl;
         using namespace std::literals::chrono_literals;
